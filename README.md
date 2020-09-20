@@ -7,7 +7,7 @@
 Ставим зависимости | `npm i`
 Запускаем на localhost:3000 | `npm run start`
 
-#### Команды:
+#### Команды
 Command | Description
 ------------ | -------------
 `npm run start` | запускаем dev-server для локальной разработки
@@ -29,4 +29,4 @@ prod | https://frontendconf.ru
 sentry | https://ссылка_на_sentry/твой_проект
 сценарии тестирования | https://ссылка_на_доку_с_тестированием
 
-##### По всем вопросами пишите в telegram: @jquery_dlya_slabih
+#### По всем вопросами пишите в telegram: @jquery_dlya_slabih
