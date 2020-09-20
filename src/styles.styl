@@ -1,0 +1,23 @@
+@import '~cssConstants'
+
+*
+  box-sizing border-box
+  -webkit-tap-highlight-color transparent
+
+body
+  font-family 'Roboto', sans-serif
+  -webkit-font-smoothing antialiased
+  background-color #f3f4f6
+  margin 0
+  font-size 14px
+  line-height 20px
+  color $black
+
+:global(#app)
+  display flex
+  align-items center
+  flex-direction column
+
+:global(.block)
+  $block()
+

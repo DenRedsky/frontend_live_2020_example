@@ -1,0 +1,26 @@
+$white = #fff
+$blue = #318ce7
+$alice-blue = #F0F8FF
+$gray = #71777c
+$black = #424242
+$red = #df4f45
+$orange = #e9a126
+$green = #00AB66
+
+$max-width = 1100px
+$tablet = 1024px
+$mobile = 767px
+
+$block()
+  margin-top 20px
+  background-color #fff
+  box-shadow 0 2px 4px 0 rgba(0, 0, 0, .07)
+  max-width $max-width
+  width 100%
+  border-radius 5px
+  padding 24px
+  @media only screen and (max-width $tablet)
+    border-radius 0
+    padding 16px
+  @media only screen and (max-width $mobile)
+    padding 8px

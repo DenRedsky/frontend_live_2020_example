@@ -1,0 +1,29 @@
+{
+  "brackets": "never",
+  "colons": "never",
+  "colors": false,
+  "commaSpace": "always",
+  "commentSpace": "always",
+  "cssLiteral": false,
+  "duplicates": false,
+  "efficient": "always",
+  "indentPref": 2,
+  "leadingZero": "never",
+  "mixed": true,
+  "none": "always",
+  "parenSpace": "never",
+  "placeholders": false,
+  "prefixVarsWithDollar": false,
+  "quotePref": "single",
+  "semicolons": "never",
+  "sortOrder": false,
+  "stackedProperties": "never",
+  "trailingWhitespace": "never",
+  "valid": {
+    "expect": true,
+    "error": true
+  },
+  "zeroUnits": "never",
+  "maxWarnings": 0,
+  "maxWarningsKill": true
+}
