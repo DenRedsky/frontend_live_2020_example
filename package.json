@@ -52,7 +52,7 @@
     "webpack-dev-server": "3.11.0"
   },
   "scripts": {
-    "build": "BABEL_ENV=production webpack --env=prod --progress",
+    "build": "npm run lint && BABEL_ENV=production webpack --env=prod --progress",
     "start": "webpack-dev-server --env=dev",
     "analyze": "webpack --env=analyze --progress",
     "lint": "stylint src/ && eslint --ext .js,.jsx src/"
