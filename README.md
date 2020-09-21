@@ -8,7 +8,7 @@
 Запускаем на localhost:3000 | `npm run start`
 
 #### Команды
-Command | Description
+Команда | Описание
 ------------ | -------------
 `npm run start` | запускаем dev-server для локальной разработки
 `npm run build` | запускаем prod pipeline
