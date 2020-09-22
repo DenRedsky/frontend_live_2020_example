@@ -1,5 +1,6 @@
 {
-  "extends": "eslint-config-airbnb",
+  "extends": ["eslint-config-airbnb", "plugin:sonarjs/recommended"],
+  "plugins": ["sonarjs"],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
