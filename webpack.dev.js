@@ -4,6 +4,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  /** output path 'dist' является таковым по умолчанию, можно не писать,
+   * но из за https://github.com/johnagan/clean-webpack-plugin/issues/194 - вынужден это оставить */
+  output: {
+    path: path.resolve('dist')
+  },
   resolve: {
     alias: {
       'cssConstants': path.resolve('src', 'constants.styl')
