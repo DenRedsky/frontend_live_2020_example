@@ -2,18 +2,16 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const autoprefixer = require('autoprefixer');
 const CheckDuplicatePlugin = require('duplicate-package-checker-webpack-plugin');
 const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const MiniCss = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: {
-    app: path.resolve('src', 'index.jsx')
-  },
   output: {
     filename: 'js/[name].[contenthash].js',
+    /** path 'dist' является таковым по умолчанию, можно не писать,
+     * но из за https://github.com/johnagan/clean-webpack-plugin/issues/194 - вынужден это оставить */
     path: path.resolve('dist')
   },
   resolve: {
@@ -25,27 +23,19 @@ module.exports = {
   },
   devtool: false,
   stats: {
-    assets: true,
-    colors: true,
-    errors: true,
-    errorDetails: true,
-    modules: false,
-    performance: true,
-    hash: false,
-    version: false,
+    all: false,
     timings: true,
-    warnings: true,
-    children: false
-  },
-  performance: {
-    hints: false
+    assets: true,
+    assetsSort: 'size',
+    errors: true,
+    colors: true
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader?cacheDirectory',
-        exclude: /node_modules/
+        use: 'babel-loader',
+        include: /src/
       },
       {
         test: /\.styl$/,
@@ -59,15 +49,15 @@ module.exports = {
               }
             }
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [autoprefixer()]
-            }
-          },
+          'postcss-loader',
           'stylus-loader'
         ],
-        exclude: /node_modules/
+        include: /src/
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        include: /src/
       }
     ]
   },
