@@ -1,33 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
-
-const stats = {
-  assets: true,
-  colors: true,
-  errors: true,
-  errorDetails: true,
-  modules: false,
-  performance: true,
-  hash: false,
-  version: false,
-  timings: true,
-  warnings: true,
-  children: false
-};
 
 module.exports = {
   mode: 'development',
-  entry: {
-    app: path.resolve('src', 'index.jsx')
-  },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve('dist'),
-    publicPath: '/'
-  },
   resolve: {
     alias: {
       'cssConstants': path.resolve('src', 'constants.styl')
@@ -35,24 +11,29 @@ module.exports = {
     modules: ['node_modules'],
     extensions: ['.jsx', '.js', '.styl']
   },
-  devtool: 'source-map',
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     contentBase: path.resolve('dist'),
     historyApiFallback: true,
-    stats,
-    port: 3000,
-    hot: true,
-    watchOptions: {
-      poll: true
+    stats: {
+      all: false,
+      timings: true,
+      assets: true,
+      assetsSort: 'size',
+      errors: true,
+      colors: true
     },
+    port: 3000
   },
-  stats,
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader?cacheDirectory',
-        exclude: /node_modules/
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true
+        },
+        include: /src/
       },
       {
         test: /\.styl$/,
@@ -66,20 +47,15 @@ module.exports = {
               }
             }
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [autoprefixer()]
-            }
-          },
-          {
-            loader: 'stylus-loader',
-            options: {
-              sourceMap: false
-            }
-          }
+          'postcss-loader',
+          'stylus-loader'
         ],
-        exclude: /node_modules/
+        include: /src/
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        include: /src/
       }
     ]
   },
@@ -88,7 +64,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve('src', 'index.html')
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ]
 };

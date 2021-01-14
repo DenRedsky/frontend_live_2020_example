@@ -1,9 +1,12 @@
 import React from 'react';
 
+import styles from './styles';
+
 const Home = () => (
   <div className="block">
-    Конференция Frontend Live — это шесть дней увлекательной программы.
-    Frontend Live посвящена всем аспектам разработки клиентской части веб проектов.
+    <div className={ styles.text }>
+      Главная страница
+    </div>
   </div>
 );
 

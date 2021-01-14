@@ -13,7 +13,7 @@ module.exports = {
     app: path.resolve('src', 'index.jsx')
   },
   output: {
-    filename: 'js/[name].[chunkhash].js',
+    filename: 'js/[name].[contenthash].js',
     path: path.resolve('dist')
   },
   resolve: {
