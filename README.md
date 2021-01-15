@@ -52,6 +52,9 @@ Example of font loading (not google fonts):
   font-weight 400
   font-style normal
   font-display swap // @stylint ignore
+
+body
+  font-family 'YourFontNameHere', sans-serif
 ```
 
 ### for questions use telegram: @jquery_dlya_slabih
