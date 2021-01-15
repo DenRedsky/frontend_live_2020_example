@@ -69,7 +69,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve('src', 'index.html')
+      template: path.resolve('src', 'index.html'),
+      scriptLoading: 'defer'
     })
   ]
 };

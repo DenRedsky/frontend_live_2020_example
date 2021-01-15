@@ -70,7 +70,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('src', 'index.html'),
-      minify: true
+      scriptLoading: 'defer'
     }),
     new MiniCss({ filename: 'css/[name].css' }),
     new OptimizeCssAssetsPlugin({

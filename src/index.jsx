@@ -6,4 +6,4 @@ import './styles';
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
-module?.hot.accept();
+module?.hot?.accept();
