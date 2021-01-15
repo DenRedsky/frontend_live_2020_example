@@ -53,16 +53,15 @@
     "stylint-json-reporter": "0.3.1",
     "stylus": "0.54.8",
     "stylus-loader": "4.3.2",
-    "unused-files-webpack-plugin": "3.4.0",
     "webpack": "5.14.0",
     "webpack-bundle-analyzer": "4.3.0",
     "webpack-cli": "4.3.1",
     "webpack-dev-server": "3.11.2"
   },
   "scripts": {
-    "build": "npm run lint && BABEL_ENV=production webpack --env=prod --progress",
+    "build": "npm run lint && BABEL_ENV=production webpack --config webpack.prod.js",
     "start": "webpack serve --config webpack.dev.js",
-    "analyze": "webpack --env=analyze --progress",
+    "analyze": "BABEL_ENV=production webpack --config webpack.analyze.js",
     "lint": "stylint src/ && eslint --ext .js,.jsx src/"
   }
 }

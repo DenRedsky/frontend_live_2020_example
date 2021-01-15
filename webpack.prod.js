@@ -3,15 +3,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CheckDuplicatePlugin = require('duplicate-package-checker-webpack-plugin');
-const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const MiniCss = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
   output: {
     filename: 'js/[name].[contenthash].js',
-    /** path 'dist' является таковым по умолчанию, можно не писать,
-     * но из за https://github.com/johnagan/clean-webpack-plugin/issues/194 - вынужден это оставить */
+    /** https://github.com/johnagan/clean-webpack-plugin/issues/194 */
     path: path.resolve('dist')
   },
   resolve: {
@@ -82,7 +80,6 @@ module.exports = {
         discardComments: { removeAll: true }
       }
     }),
-    new CheckDuplicatePlugin({ emitError: true }),
-    new UnusedFilesWebpackPlugin({ patterns: ['src/**/*.*'], failOnUnused: true })
+    new CheckDuplicatePlugin({ emitError: true })
   ]
 };
