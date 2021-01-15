@@ -9,7 +9,8 @@ module.exports = {
   env: {
     production: {
       plugins: [
-        ['transform-react-remove-prop-types', { removeImport: true }]
+        ['transform-react-remove-prop-types', { removeImport: true }],
+        ['@babel/plugin-proposal-optional-chaining', { loose: true }]
       ]
     }
   }

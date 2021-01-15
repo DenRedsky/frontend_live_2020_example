@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  /** https://github.com/webpack/webpack-dev-server/issues/2758 */
+  target: 'web',
   /** https://github.com/johnagan/clean-webpack-plugin/issues/194 */
   output: {
     path: path.resolve('dist')
@@ -17,8 +19,9 @@ module.exports = {
   },
   devtool: 'eval-cheap-module-source-map',
   devServer: {
-    contentBase: path.resolve('dist'),
     historyApiFallback: true,
+    hot: true,
+    port: 3000,
     stats: {
       all: false,
       timings: true,
@@ -26,8 +29,7 @@ module.exports = {
       assetsSort: 'size',
       errors: true,
       colors: true
-    },
-    port: 3000
+    }
   },
   module: {
     rules: [
